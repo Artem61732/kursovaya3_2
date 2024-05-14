@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1
--- Время создания: Май 14 2024 г., 07:10
--- Версия сервера: 10.4.32-MariaDB
--- Версия PHP: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Aug 05, 2022 at 07:34 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,32 +18,32 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `art_forum`
+-- Database: `art_forum`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
   `id` int(100) NOT NULL,
   `name` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `name`, `password`) VALUES
-(1, 'admin', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2')
+(1, 'admin', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -54,12 +54,12 @@ CREATE TABLE `comments` (
   `user_name` varchar(50) NOT NULL,
   `comment` varchar(1000) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `likes`
+-- Table structure for table `likes`
 --
 
 CREATE TABLE `likes` (
@@ -67,12 +67,12 @@ CREATE TABLE `likes` (
   `user_id` int(100) NOT NULL,
   `admin_id` int(100) NOT NULL,
   `post_id` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `posts`
+-- Table structure for table `posts`
 --
 
 CREATE TABLE `posts` (
@@ -85,12 +85,12 @@ CREATE TABLE `posts` (
   `image` varchar(100) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp(),
   `status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -98,76 +98,76 @@ CREATE TABLE `users` (
   `name` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Индексы сохранённых таблиц
+-- Indexes for dumped tables
 --
 
 --
--- Индексы таблицы `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `likes`
+-- Indexes for table `likes`
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Индексы таблицы `posts`
+-- Indexes for table `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблицы `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT для таблицы `comments`
+-- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `likes`
+-- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `posts`
+-- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
