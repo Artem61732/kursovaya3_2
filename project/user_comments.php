@@ -14,9 +14,9 @@ if(isset($_SESSION['user_id'])){
 if(isset($_POST['edit_comment'])){
 
    $edit_comment_id = $_POST['edit_comment_id'];
-   $edit_comment_id = filter_var($edit_comment_id, FILTER_SANITIZE_STRING);
+   $edit_comment_id = filter_var($edit_comment_id, ENT_QUOTES, 'UTF-8');
    $comment_edit_box = $_POST['comment_edit_box'];
-   $comment_edit_box = filter_var($comment_edit_box, FILTER_SANITIZE_STRING);
+   $comment_edit_box = filter_var($comment_edit_box, ENT_QUOTES, 'UTF-8');
 
    $verify_comment = $conn->prepare("SELECT * FROM `comments` WHERE comment = ? AND id = ?");
    $verify_comment->execute([$comment_edit_box, $edit_comment_id]);
@@ -33,7 +33,7 @@ if(isset($_POST['edit_comment'])){
 
 if(isset($_POST['delete_comment'])){
    $delete_comment_id = $_POST['comment_id'];
-   $delete_comment_id = filter_var($delete_comment_id, FILTER_SANITIZE_STRING);
+   $delete_comment_id = filter_var($delete_comment_id, ENT_QUOTES, 'UTF-8');
    $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ?");
    $delete_comment->execute([$delete_comment_id]);
    $message[] = 'comment deleted successfully!';
@@ -61,7 +61,7 @@ if(isset($_POST['delete_comment'])){
 <?php
    if(isset($_POST['open_edit_box'])){
    $comment_id = $_POST['comment_id'];
-   $comment_id = filter_var($comment_id, FILTER_SANITIZE_STRING);
+   $comment_id = filter_var($comment_id, ENT_QUOTES, 'UTF-8');
 ?>
    <section class="comment-edit-form">
    <p>Изменить коммнтарий</p>

@@ -7,15 +7,15 @@ if(isset($_POST['add_to_cart'])){
    }else{
 
    $pid = $_POST['pid'];
-   $pid = filter_var($pid, FILTER_SANITIZE_STRING);
+   $pid = filter_var($pid, ENT_QUOTES, 'UTF-8');
    $name = $_POST['name'];
-   $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $name = filter_var($name, ENT_QUOTES, 'UTF-8');
    $price = $_POST['price'];
-   $price = filter_var($price, FILTER_SANITIZE_STRING);
+   $price = filter_var($price, ENT_QUOTES, 'UTF-8');
    $image = $_POST['image'];
-   $image = filter_var($image, FILTER_SANITIZE_STRING);
+   $image = filter_var($image, ENT_QUOTES, 'UTF-8');
    $qty = $_POST['qty'];
-   $qty = filter_var($qty, FILTER_SANITIZE_STRING);
+   $qty = filter_var($qty, ENT_QUOTES, 'UTF-8');
 
    $check_cart_numbers = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ? AND name = ?");
    $check_cart_numbers->execute([$user_id, $name]);
