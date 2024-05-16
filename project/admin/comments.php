@@ -13,7 +13,7 @@ if(!isset($admin_id)){
 if(isset($_POST['delete_comment'])){
 
    $comment_id = $_POST['comment_id'];
-   $comment_id = filter_var($comment_id, ENT_QUOTES, 'UTF-8');
+   $comment_id = filter_var($comment_id, FILTER_SANITIZE_STRING);
    $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ?");
    $delete_comment->execute([$comment_id]);
    $message[] = 'Комментарий удален!';

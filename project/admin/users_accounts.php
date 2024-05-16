@@ -11,7 +11,7 @@ if(!isset($admin_id)){
 }
 if (isset($_POST['delete_user'])) {
    $user_id = $_POST['user_id'];
-   $user_id = filter_var($user_id, ENT_QUOTES, 'UTF-8');
+   $user_id = filter_var($user_id, FILTER_SANITIZE_STRING);
    $delete_user = $conn->prepare("DELETE FROM `users` WHERE id = ?");
    $delete_user->execute([$user_id]);
    $delete_comments = $conn->prepare("DELETE FROM `comments` WHERE user_id = ?");

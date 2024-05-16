@@ -13,17 +13,17 @@ if(!isset($admin_id)){
 if(isset($_POST['publish'])){
 
    $name = $_POST['name'];
-   $name = filter_var($name, ENT_QUOTES, 'UTF-8');
+   $name = filter_var($name, FILTER_SANITIZE_STRING);
    $title = $_POST['title'];
-   $title = filter_var($title, ENT_QUOTES, 'UTF-8');
+   $title = filter_var($title, FILTER_SANITIZE_STRING);
    $content = $_POST['content'];
-   $content = filter_var($content, ENT_QUOTES, 'UTF-8');
+   $content = filter_var($content, FILTER_SANITIZE_STRING);
    $category = $_POST['category'];
-   $category = filter_var($category, ENT_QUOTES, 'UTF-8');
+   $category = filter_var($category, FILTER_SANITIZE_STRING);
    $status = 'active';
    
    $image = $_FILES['image']['name'];
-   $image = filter_var($image, ENT_QUOTES, 'UTF-8');
+   $image = filter_var($image, FILTER_SANITIZE_STRING);
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
    $image_folder = '../uploaded_img/'.$image;
@@ -56,17 +56,17 @@ if(isset($_POST['publish'])){
 if(isset($_POST['draft'])){
 
    $name = $_POST['name'];
-   $name = filter_var($name, ENT_QUOTES, 'UTF-8');
+   $name = filter_var($name, FILTER_SANITIZE_STRING);
    $title = $_POST['title'];
-   $title = filter_var($title, ENT_QUOTES, 'UTF-8');
+   $title = filter_var($title, FILTER_SANITIZE_STRING);
    $content = $_POST['content'];
-   $content = filter_var($content, ENT_QUOTES, 'UTF-8');
+   $content = filter_var($content, FILTER_SANITIZE_STRING);
    $category = $_POST['category'];
-   $category = filter_var($category, ENT_QUOTES, 'UTF-8');
+   $category = filter_var($category, FILTER_SANITIZE_STRING);
    $status = 'deactive';
    
    $image = $_FILES['image']['name'];
-   $image = filter_var($image, ENT_QUOTES, 'UTF-8');
+   $image = filter_var($image, FILTER_SANITIZE_STRING);
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
    $image_folder = '../uploaded_img/'.$image;

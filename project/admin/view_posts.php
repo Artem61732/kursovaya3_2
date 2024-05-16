@@ -13,7 +13,7 @@ if(!isset($admin_id)){
 if(isset($_POST['delete'])){
 
    $p_id = $_POST['post_id'];
-   $p_id = filter_var($p_id, ENT_QUOTES, 'UTF-8');
+   $p_id = filter_var($p_id, FILTER_SANITIZE_STRING);
    $delete_image = $conn->prepare("SELECT * FROM `posts` WHERE id = ?");
    $delete_image->execute([$p_id]);
    $fetch_delete_image = $delete_image->fetch(PDO::FETCH_ASSOC);
