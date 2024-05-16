@@ -146,7 +146,7 @@ if(isset($_POST['delete_image'])){
       <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png, image/webp">
       <?php if($fetch_posts['image'] != ''){ ?>
          <img src="../uploaded_img/<?= $fetch_posts['image']; ?>" class="image" alt="">
-         <input type="submit" value="delete image" class="inline-delete-btn" name="delete_image">
+         <input type="submit" value="Удалить изображение" class="inline-delete-btn" name="delete_image">
       <?php } ?>
       <div class="flex-btn">
          <input type="submit" value="Изменить" name="save" class="btn">

@@ -17,7 +17,7 @@ if(isset($message)){
 
       <a href="home.php" class="logo">ArtФорум</a>
 
-      <form action="search.php" method="POST" class="search-form">
+      <form action="" method="POST" class="search-form">
          <input type="text" name="search_box" class="box" maxlength="100" placeholder="Найти публикации" required>
          <button type="submit" class="fas fa-search" name="search_btn"></button>
       </form>

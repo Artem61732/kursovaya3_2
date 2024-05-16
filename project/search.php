@@ -89,7 +89,7 @@ include 'components/like_post.php';
       <?php
          }
       }else{
-         echo '<p class="empty">no result found!</p>';
+         echo '<p class="empty">Ничего не найдено!</p>';
       }
       ?>
    </div>
@@ -98,7 +98,7 @@ include 'components/like_post.php';
 
 <?php
    }else{
-      echo '<section><p class="empty">search something!</p></section>';
+      echo '<section><p class="empty">Найти что-нибудь!</p></section>';
    }
 ?>
    
